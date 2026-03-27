@@ -127,7 +127,7 @@ function renderQuestions(section) {
       const labels = ['A','B','C','D'];
       optionsHTML = `<div class="q-options">
         ${q.options.map((opt, oi) =>
-          `<div class="q-option ${oi === q.answer ? 'correct' : ''}">
+          `<div class="q-option" data-correct="${oi === q.answer}">
             <span class="option-label">${labels[oi]})</span> ${opt}
           </div>`
         ).join('')}
@@ -136,7 +136,7 @@ function renderQuestions(section) {
       const labels = ['A','B','C','D'];
       optionsHTML = `<div class="q-options">
         ${q.options.map((opt, oi) =>
-          `<div class="q-option ${oi === q.answer ? 'correct' : ''}">
+          `<div class="q-option" data-correct="${oi === q.answer}">
             <span class="option-label">${labels[oi]})</span> ${opt}
           </div>`
         ).join('')}
@@ -178,6 +178,19 @@ function toggleSolution(btn) {
   btn.classList.toggle('open');
   const content = btn.nextElementSibling;
   content.classList.toggle('open');
+  
+  // Reveal correct answer styling
+  const card = btn.closest('.question-card');
+  if (card) {
+    const correctOpts = card.querySelectorAll('.q-option[data-correct="true"]');
+    correctOpts.forEach(opt => {
+      if (btn.classList.contains('open')) {
+        opt.classList.add('correct');
+      } else {
+        opt.classList.remove('correct');
+      }
+    });
+  }
 }
 
 // ===== TAB SWITCHING =====
