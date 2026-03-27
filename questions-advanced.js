@@ -103,6 +103,81 @@ const ADVANCED_QUESTIONS = [
 ];
 
 const CODING_QUESTIONS = [
+  {id:"C_NEW1",topic:"Array",prob:"certain",diff:"hard",
+    q:"ACTUAL RECENT Q (March 2026): Find the maximum product from a subset of an array containing positive, negative, and zero elements. Input: [-1, 2, -3, 4] Output: 24 (-1 * -3 * 2 * 4).",
+    options:["Sort and greedy approach","Find max neg product pair","Count negatives and zeroes","Dynamic programming"],answer:2,
+    explanation:`def max_subset_product(arr):
+    if not arr: return 0
+    if len(arr) == 1: return arr[0]
+    
+    max_neg = float('-inf')
+    count_neg = 0
+    count_zero = 0
+    prod = 1
+    
+    for x in arr:
+        if x == 0:
+            count_zero += 1
+            continue
+        if x < 0:
+            count_neg += 1
+            max_neg = max(max_neg, x)
+        prod *= x
+        
+    if count_zero == len(arr): return 0
+    if count_neg % 2 == 1:
+        if count_neg == 1 and count_zero > 0 and count_zero + count_neg == len(arr):
+            return 0
+        prod //= max_neg
+    return prod
+# Source: Exact March 2026 TCS NQT Shift`},
+  {id:"C_NEW2",topic:"Array",prob:"certain",diff:"medium",
+    q:"ACTUAL RECENT Q (March 2026): A conveyor belt has packets. Empty packets are represented by 0. Move all empty packets to the end of the array. Input: [1, 2, 0, 4, 3, 0, 5, 0] Output: [1, 2, 4, 3, 5, 0, 0, 0]",
+    options:["Two pointer technique","Bubble sort","Extra array","Move non-zeroes forward"],answer:0,
+    explanation:`def move_zeroes(arr):
+    non_zero = 0
+    for i in range(len(arr)):
+        if arr[i] != 0:
+            arr[non_zero], arr[i] = arr[i], arr[non_zero]
+            non_zero += 1
+    return arr
+# Time: O(n), Space: O(1)
+# Source: Exact March 2026 TCS NQT Shift`},
+  {id:"C_NEW3",topic:"Number",prob:"certain",diff:"medium",
+    q:"ACTUAL RECENT Q (March 2026): Given 'N' number of days and the starting day of the month (e.g., 'Monday'), count the total number of Sundays in those N days.",
+    options:["Modulo arithmetic","Use datetime lib","Loop N times","Math formula: (N + offset)/7"],answer:3,
+    explanation:`def count_sundays(start_day, n):
+    days = {"Monday": 1, "Tuesday": 2, "Wednesday": 3, "Thursday": 4, "Friday": 5, "Saturday": 6, "Sunday": 7}
+    if start_day not in days: return 0
+    
+    # How many days until first Sunday?
+    first_sunday_offset = 7 - days[start_day]
+    
+    if n <= first_sunday_offset:
+        return 0
+        
+    remaining_days = n - (first_sunday_offset + 1)
+    return 1 + (remaining_days // 7)
+# Source: Exact March 2026 TCS NQT Shift`},
+  {id:"C_NEW4",topic:"Array",prob:"very-high",diff:"hard",
+    q:"ACTUAL RECENT Q (March 2026): Find the minimum number of adjacent swaps required to transform an initial array into a desired final array. Input: arr=[10, 20, 50, 40], target=[50, 20, 40, 10] Output: 4",
+    options:["Modified Bubble Sort","Inversion Count","Greedy matching","DFS"],answer:1,
+    explanation:`def min_swaps_adjacent(arr, target):
+    # Essentially finding the number of inversions mapped to target
+    pos = {val: i for i, val in enumerate(target)}
+    mapped = [pos[val] for val in arr]
+    
+    swaps = 0
+    n = len(mapped)
+    # Count inversions using modified bubble sort or merge sort
+    # Simple bubble sort counts adjacent swaps perfectly:
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if mapped[j] > mapped[j+1]:
+                mapped[j], mapped[j+1] = mapped[j+1], mapped[j]
+                swaps += 1
+    return swaps
+# Source: Exact March 2026 TCS NQT Shift`},
   {id:"C1",topic:"Array",prob:"certain",diff:"medium",
     q:"Write a program to find the second largest element in an array. Input: [12, 35, 1, 10, 34, 1] Output: 34",
     options:["Sort & pick n-2 index","Use single pass with two vars","Use set then sort","All approaches work"],answer:3,
