@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TCS NQT Exam Question Prediction Tool for April 3, 2026 — AI-powered predictions based on previous year analysis from PrepInsta, GeeksforGeeks, and official TCS patterns.">
+  <title>TCS NQT Exam Predictor — April 3, 2026 | Question Prediction Tool</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎯</text></svg>">
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-animation">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+
+  <div class="container">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-badge">🎯 AI-Powered Question Prediction</div>
+      <h1>
+        TCS NQT Exam Predictor
+        <span>April 3, 2026 — 9:00 AM to 12:30 PM Batch</span>
+      </h1>
+      <p class="hero-subtitle">
+        200+ predicted questions with probability scores based on analysis of 5+ years of TCS NQT papers from PrepInsta, GeeksforGeeks & official TCS patterns.
+      </p>
+
+      <!-- Countdown -->
+      <div class="countdown" id="countdown">
+        <div class="countdown-item">
+          <span class="countdown-value" id="cd-days">--</span>
+          <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-value" id="cd-hours">--</span>
+          <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-value" id="cd-mins">--</span>
+          <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="countdown-value" id="cd-secs">--</span>
+          <span class="countdown-label">Seconds</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXAM STATS ===== -->
+    <div class="exam-stats">
+      <div class="stat-card">
+        <div class="stat-icon">📝</div>
+        <div class="stat-value">65 + 16-22</div>
+        <div class="stat-label">Total Questions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">⏱️</div>
+        <div class="stat-value">190 min</div>
+        <div class="stat-label">Total Duration</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🚫</div>
+        <div class="stat-value">No</div>
+        <div class="stat-label">Negative Marking</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🎯</div>
+        <div class="stat-value">200+</div>
+        <div class="stat-label">Predicted Questions</div>
+      </div>
+    </div>
+
+    <!-- ===== SECTION TABS ===== -->
+    <div class="section-tabs" id="sectionTabs">
+      <button class="tab-btn active" data-tab="numerical">
+        🔢 Numerical Ability <span class="tab-count" id="count-numerical">0</span>
+      </button>
+      <button class="tab-btn" data-tab="verbal">
+        📖 Verbal Ability <span class="tab-count" id="count-verbal">0</span>
+      </button>
+      <button class="tab-btn" data-tab="reasoning">
+        🧩 Reasoning Ability <span class="tab-count" id="count-reasoning">0</span>
+      </button>
+      <button class="tab-btn" data-tab="advanced">
+        📊 Adv. Quant & Reasoning <span class="tab-count" id="count-advanced">0</span>
+      </button>
+      <button class="tab-btn" data-tab="coding">
+        💻 Advanced Coding <span class="tab-count" id="count-coding">0</span>
+      </button>
+      <button class="tab-btn" data-tab="strategy">
+        🧠 Exam Strategy
+      </button>
+    </div>
+
+    <!-- ===== FILTER BAR ===== -->
+    <div class="filter-bar" id="filterBar">
+      <span class="filter-label">Probability:</span>
+      <div class="filter-group" id="probFilters">
+        <button class="filter-btn active" data-prob="all">All</button>
+        <button class="filter-btn" data-prob="certain">🔥 Almost Certain</button>
+        <button class="filter-btn" data-prob="very-high">⭐ Very High</button>
+        <button class="filter-btn" data-prob="high">✦ High</button>
+      </div>
+      <span class="filter-label" style="margin-left: 12px;">Difficulty:</span>
+      <div class="filter-group" id="diffFilters">
+        <button class="filter-btn active" data-diff="all">All</button>
+        <button class="filter-btn" data-diff="easy">Easy</button>
+        <button class="filter-btn" data-diff="medium">Medium</button>
+        <button class="filter-btn" data-diff="hard">Hard</button>
+      </div>
+    </div>
+
+    <!-- ===== TAB CONTENT: Sections ===== -->
+    <div id="tab-numerical" class="tab-content active">
+      <div class="section-header">
+        <h2>🔢 Numerical Ability — Foundation</h2>
+        <p>20-26 Questions • 25 Minutes • Formula-based + Word Problems</p>
+      </div>
+      <div class="heatmap-section">
+        <div class="heatmap-title">📊 Topic Frequency Heatmap</div>
+        <div class="heatmap-grid" id="heatmap-numerical"></div>
+      </div>
+      <div class="questions-grid" id="questions-numerical"></div>
+    </div>
+
+    <div id="tab-verbal" class="tab-content">
+      <div class="section-header">
+        <h2>📖 Verbal Ability — Foundation</h2>
+        <p>24-25 Questions • 25 Minutes • Grammar, Vocabulary, Comprehension</p>
+      </div>
+      <div class="heatmap-section">
+        <div class="heatmap-title">📊 Topic Frequency Heatmap</div>
+        <div class="heatmap-grid" id="heatmap-verbal"></div>
+      </div>
+      <div class="questions-grid" id="questions-verbal"></div>
+    </div>
+
+    <div id="tab-reasoning" class="tab-content">
+      <div class="section-header">
+        <h2>🧩 Reasoning Ability — Foundation</h2>
+        <p>15-20 Questions • 25 Minutes • Logic, Patterns, Analytical Thinking</p>
+      </div>
+      <div class="heatmap-section">
+        <div class="heatmap-title">📊 Topic Frequency Heatmap</div>
+        <div class="heatmap-grid" id="heatmap-reasoning"></div>
+      </div>
+      <div class="questions-grid" id="questions-reasoning"></div>
+    </div>
+
+    <div id="tab-advanced" class="tab-content">
+      <div class="section-header">
+        <h2>📊 Advanced Quant & Reasoning</h2>
+        <p>14-20 Questions • 25 Minutes • Higher Difficulty MCQs + Non-MCQs</p>
+      </div>
+      <div class="heatmap-section">
+        <div class="heatmap-title">📊 Topic Frequency Heatmap</div>
+        <div class="heatmap-grid" id="heatmap-advanced"></div>
+      </div>
+      <div class="questions-grid" id="questions-advanced"></div>
+    </div>
+
+    <div id="tab-coding" class="tab-content">
+      <div class="section-header">
+        <h2>💻 Advanced Coding</h2>
+        <p>2 Questions • 90 Minutes • C / C++ / Java / Python / Perl</p>
+      </div>
+      <div class="heatmap-section">
+        <div class="heatmap-title">📊 Problem Type Frequency</div>
+        <div class="heatmap-grid" id="heatmap-coding"></div>
+      </div>
+      <div class="questions-grid" id="questions-coding"></div>
+    </div>
+
+    <div id="tab-strategy" class="tab-content">
+      <div class="section-header">
+        <h2>🧠 Exam Strategy — April 3 Battle Plan</h2>
+        <p>Time management, section order, and tips to maximize your TCS NQT score</p>
+      </div>
+      <div class="strategy-grid">
+        <div class="strategy-card">
+          <div class="s-icon">⏱️</div>
+          <h3>Time Management</h3>
+          <ul>
+            <li>Foundation: 75 min for 65 questions (~69 sec/question)</li>
+            <li>Adv. Quant: 25 min for ~17 questions (~88 sec/question)</li>
+            <li>Coding: 90 min for 2 problems (45 min each max)</li>
+            <li>Don't spend >2 min on any single MCQ</li>
+            <li>Mark difficult ones and revisit later</li>
+          </ul>
+        </div>
+        <div class="strategy-card">
+          <div class="s-icon">📋</div>
+          <h3>Section Order Strategy</h3>
+          <ul>
+            <li>Start with your strongest Foundation section</li>
+            <li>Attempt Verbal first — quickest to answer</li>
+            <li>Numerical next — formula-based = fast solves</li>
+            <li>Reasoning last in Foundation — most time-consuming</li>
+            <li>Coding: Solve the easier problem FIRST fully</li>
+          </ul>
+        </div>
+        <div class="strategy-card">
+          <div class="s-icon">🎯</div>
+          <h3>Scoring Strategy</h3>
+          <ul>
+            <li>No negative marking — ATTEMPT ALL questions</li>
+            <li>Ninja cutoff: ~55-60% in Foundation</li>
+            <li>Digital cutoff: ~65-70% + good coding</li>
+            <li>Prime cutoff: ~75%+ in both sections</li>
+            <li>Even partial coding solutions earn marks</li>
+          </ul>
+        </div>
+        <div class="strategy-card">
+          <div class="s-icon">🔥</div>
+          <h3>Last 7 Days Plan</h3>
+          <ul>
+            <li>Day 1-2: Focus on weak topics from heatmap</li>
+            <li>Day 3-4: Practice 2 full mock tests</li>
+            <li>Day 5: Revise all formulas & coding patterns</li>
+            <li>Day 6: Light revision + solve predicted questions</li>
+            <li>Day 7: Rest well, eat healthy, sleep 8 hours</li>
+          </ul>
+        </div>
+        <div class="strategy-card">
+          <div class="s-icon">💻</div>
+          <h3>Coding Section Tips</h3>
+          <ul>
+            <li>Use Python for fastest implementation</li>
+            <li>Read BOTH problems before picking one</li>
+            <li>Handle ALL edge cases (empty, single element)</li>
+            <li>Test with sample inputs before submitting</li>
+            <li>Partial marks: even brute-force solutions count</li>
+          </ul>
+        </div>
+        <div class="strategy-card">
+          <div class="s-icon">🛡️</div>
+          <h3>Exam Day Checklist</h3>
+          <ul>
+            <li>Carry valid photo ID + admit card (printed)</li>
+            <li>Reach center 30 minutes before 9:00 AM</li>
+            <li>Use on-screen calculator (no physical allowed)</li>
+            <li>Digital rough sheet provided on screen</li>
+            <li>Stay calm, 190 minutes is enough time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== SOURCES ===== -->
+    <div class="source-section">
+      <h3>📚 Data Sources & References</h3>
+      <div class="source-list">
+        <a href="https://www.tcs.com/careers/tcs-national-qualifier-test" target="_blank" class="source-tag">TCS Official — NQT Portal</a>
+        <a href="https://prepinsta.com/tcs-nqt/placement-papers/" target="_blank" class="source-tag">PrepInsta — TCS NQT Papers 2025-26</a>
+        <a href="https://www.geeksforgeeks.org/tcs-nqt-coding-sheet/" target="_blank" class="source-tag">GeeksforGeeks — TCS NQT Sheet 2026</a>
+        <a href="https://prepinsta.com/tcs-nqt/placement-papers/aptitude-questions/" target="_blank" class="source-tag">PrepInsta — Numerical Ability</a>
+        <a href="https://prepinsta.com/tcs-nqt/placement-papers/english-verbal/" target="_blank" class="source-tag">PrepInsta — Verbal Ability</a>
+        <a href="https://prepinsta.com/tcs-nqt/logical-ability/" target="_blank" class="source-tag">PrepInsta — Logical Reasoning</a>
+        <a href="https://www.geeksforgeeks.org/tcs-placement-papers/" target="_blank" class="source-tag">GeeksforGeeks — TCS MCQ Papers</a>
+        <a href="https://unstop.com/blog/tcs-nqt-syllabus" target="_blank" class="source-tag">Unstop — TCS NQT Syllabus</a>
+        <a href="https://takeuforward.org/interviews/tcs-nqt-coding-sheet-tcs-coding-questions/" target="_blank" class="source-tag">TakeUForward — TCS Coding</a>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <p>Built with 🎯 for TCS NQT April 3, 2026 — 9:00 AM Batch</p>
+      <p class="disclaimer">
+        Predictions based on historical pattern analysis. Actual questions may vary. 
+        Sources: PrepInsta, GeeksforGeeks, TakeUForward, Unstop, TCS Official.
+        This tool is for preparation purposes only.
+      </p>
+    </footer>
+
+  </div>
+
+  <script src="questions-numerical.js"></script>
+  <script src="questions-verbal.js"></script>
+  <script src="questions-reasoning.js"></script>
+  <script src="questions-advanced.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
